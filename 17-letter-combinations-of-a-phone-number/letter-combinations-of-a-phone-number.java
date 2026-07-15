@@ -5,7 +5,6 @@ class Solution {
             return;
         }
         String choice = map.get(stage.charAt(idx));
-        System.out.println(choice);
         for(int j=0;j<choice.length();j++){
             s.append(choice.charAt(j));
             helper(stage,n,idx+1,s,list,map);
