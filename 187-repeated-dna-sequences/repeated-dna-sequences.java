@@ -8,8 +8,8 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<10;i++){
             sb.append(s.charAt(i));
-            map.put(sb.toString(),1);
         }
+        map.put(sb.toString(),1);
         for(int i=10;i<s.length();i++){
             sb.append(s.charAt(i));
             sb.deleteCharAt(0);
