@@ -22,8 +22,6 @@ class Solution {
         List<Integer> sorted = new ArrayList<>();
         inorder(root,normal,sorted);
         Collections.sort(sorted);
-        System.out.println(normal);
-        System.out.println(sorted);
 
         int diff1=0;
         int diff2=0;
@@ -34,9 +32,6 @@ class Solution {
                 break;
             }
         }
-        System.out.println(diff1);
-        System.out.println(diff2);
-
         replace(root,diff1,diff2);
     }
 }
