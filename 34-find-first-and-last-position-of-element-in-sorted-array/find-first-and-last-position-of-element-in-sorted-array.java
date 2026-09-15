@@ -1,45 +1,46 @@
 class Solution {
-    public int bsFirst(int[] arr,int target){
-        int n = arr.length;
+    public int first(int[] arr,int target){
         int l=0;
-        int r=n-1;
-        int ans = -1;
-        while(l <= r){
-            int mid = l + (r - l)/2;
+        int r=arr.length-1;
+        int res=-1;
+        while(l<=r){
+            int mid = (l+r)/2;
             if(arr[mid] == target){
+                res = mid;
+                r=mid-1;
+            }
+            else if(arr[mid] < target){
+                l = mid+1;
+            }
+            else{
                 r = mid-1;
-                ans = mid;
-            }
-            else if(arr[mid] < target){
-                l = mid + 1;
-            }
-            else{
-                r = mid - 1;
             }
         }
-        return ans;
+        return res;
     }
-    public int bsLast(int[] arr,int target){
-        int n = arr.length;
+    public int last(int[] arr,int target){
         int l=0;
-        int r=n-1;
-        int ans = -1;
-        while(l <= r){
-            int mid = l + (r - l)/2;
+        int r=arr.length-1;
+        int res=-1;
+        while(l<=r){
+            int mid = (l+r)/2;
             if(arr[mid] == target){
-                l = mid + 1;
-                ans = mid;
+                res = mid;
+                l=mid+1;
             }
             else if(arr[mid] < target){
-                l = mid + 1;
+                l = mid+1;
             }
             else{
-                r = mid - 1;
+                r = mid-1;
             }
         }
-        return ans;
+        return res;
     }
     public int[] searchRange(int[] nums, int target) {
-        return new int[]{bsFirst(nums,target), bsLast(nums,target)};
+        int[] res = new int[]{-1,-1};
+        res[0] = first(nums,target);
+        res[1] = last(nums,target);
+        return res;
     }
 }
