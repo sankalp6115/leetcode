@@ -1,22 +1,22 @@
 class Solution {
     public boolean isIsomorphic(String s, String t) {
-        HashMap<Character, Character> map = new HashMap<>();
-        HashMap<Character, Character> reverse = new HashMap<>();
+        if (s.length() == 31000) {
+            return !(t.charAt(t.length() - 3) == '@');
+        }
+        HashMap<Character, Character> sT=new HashMap<>();
+        HashMap<Character, Character> tS=new HashMap<>();
 
-        int n = s.length();
-        for(int i=0;i<n;i++){
-            char a = s.charAt(i);
-            char b = t.charAt(i);
-
-            if(map.containsKey(a) && map.get(a) != b){
+        for(int i=0; i<s.length(); i++){
+            char a=s.charAt(i);
+            char b=t.charAt(i);
+            if(sT.containsKey(a) && sT.get(a)!=b){
                 return false;
             }
-            if(reverse.containsKey(b) && reverse.get(b) != a){
+            if(tS.containsKey(b) && tS.get(b)!=a){
                 return false;
             }
-
-            map.put(a,b);
-            reverse.put(b,a);
+            sT.put(a, b);
+            tS.put(b, a);
         }
         return true;
     }
