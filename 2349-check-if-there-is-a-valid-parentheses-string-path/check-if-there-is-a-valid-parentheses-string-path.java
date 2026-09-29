@@ -12,7 +12,7 @@ class Solution {
             return balance==0;
         }
 
-        if(dp[row][col][balance] != -1){
+        if(dp[row][col][balance] != 0){
             return dp[row][col][balance]==1;
         }
 
@@ -30,7 +30,7 @@ class Solution {
             }
         }   
         
-        dp[row][col][balance] = 0;
+        dp[row][col][balance] = -1;
         return false;
     }
 
@@ -38,11 +38,11 @@ class Solution {
         int n = grid.length;
         int m = grid[0].length;
         int[][][] dp = new int[n][m][n+m-1];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                Arrays.fill(dp[i][j], -1);
-            }
-        }
+        // for (int i = 0; i < n; i++) {
+        //     for (int j = 0; j < m; j++) {
+        //         Arrays.fill(dp[i][j], -1);
+        //     }
+        // }
         if(grid[0][0] == ')' || grid[n-1][m-1] == '(') return false;
         StringBuilder s = new StringBuilder();
         return helper(grid,0,0,0,dp);
