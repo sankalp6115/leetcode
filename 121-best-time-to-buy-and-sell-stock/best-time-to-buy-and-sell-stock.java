@@ -5,7 +5,6 @@ class Solution {
         int r=1;
         int n=nums.length;
         while(r<n){
-            int curr_profit=0;
             if(nums[l] > nums[r]){
                 l=r;
                 r++;
