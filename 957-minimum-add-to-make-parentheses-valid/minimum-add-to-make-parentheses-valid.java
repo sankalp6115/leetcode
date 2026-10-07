@@ -14,7 +14,6 @@ class Solution {
                 else close++;
             }
         }
-        System.out.printf("%d %d",open,close);
         return open+close;
     }
 }
