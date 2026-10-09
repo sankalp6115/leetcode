@@ -2,13 +2,19 @@ class NumArray {
     int[] nums;
     public NumArray(int[] nums) {
         this.nums = nums;
+
+        for(int i=1;i<nums.length;i++){
+            this.nums[i] = this.nums[i-1] + this.nums[i];
+        }
     }
     public int sumRange(int left, int right) {
         int sum=0;
-        for(int i=left;i<=right;i++){
-            sum += this.nums[i];
+        if(left == 0){
+            return this.nums[right];
         }
-        return sum;
+        else{
+            return this.nums[right] - this.nums[left-1];
+        }
     }
 }
 
