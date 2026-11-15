@@ -1,20 +1,17 @@
 class Solution {
     public int countConsistent(int[] nums) {
-        int res=0;
-        int n = nums.length;
-        for(int i=0;i<n;i++){
-            for(int j=i;j<n;j++){
-                int sum=nums[i];
-                int min=Integer.MAX_VALUE;
+        int count=0;
+        for(int i=0;i<nums.length;i++){
+            int and=nums[i];
+            int min=101;
 
-                for(int k=i;k<=j;k++){
-                    min = Math.min(min,nums[k]);
-                    sum = sum & nums[k];
-                }
-
-                if(sum == min) res++;
+            for(int j=i;j<nums.length;j++){
+                and = and & nums[j];
+                min = Math.min(min,nums[j]);
+                
+                if(and == min) count++;
             }
-        }
-        return res;
+        }      
+        return count;
     }
 }
